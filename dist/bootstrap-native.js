@@ -195,7 +195,7 @@
       this.close = function(e) {
         var target = e.target;
         self.btn = target.getAttribute('data-dismiss') === 'alert' && target.className === 'close' ? target : target.parentNode;
-        self.alert = self.btn.parentNode;
+        if (self.btn) self.alert = self.btn.parentNode;
 
         if ( self.alert !== null && self.btn.getAttribute('data-dismiss') === 'alert' && /\bin/.test(self.alert.className) ) {
           self.alert.className = self.alert.className.replace(' in','');
